@@ -12,12 +12,12 @@ generate.hilbert <- function(generator, n){
   return(generator)
 }
 
-reorient <- function(generator, corner = "bottomright", direction = "clockwise"){
+reorient <- function(generator, corner = "bottomright", orientation = "clockwise"){
   if(corner == "bottomleft"){generator <- generator}
   else if(corner == "topleft"){generator <- apply(generator,2,rev) %>% t()}
   else if(corner == "topright"){generator <- apply(generator,1,rev) %>% t() %>% apply(2,rev)}
   else if(corner == "bottomright"){generator <- apply(t(generator),2,rev)}
-  if(direction == "clockwise"){
+  if(orientation == "clockwise"){
     if(corner %in% c("bottomleft","topright")){
       generator <- matrix(rev(generator), byrow = TRUE, 
                           nrow = nrow(generator))}
@@ -46,13 +46,13 @@ plot.results <- function(generator, xfrac = 1/2, yfrac = 1/2, n){
   segments(x[-length(x)],y[-length(y)],x[-1L],y[-1L],col=mypal,lwd=3/n)
 }
 
-main <- function(order, corner = "bottomleft", direction = "clockwise",
+main <- function(order, corner = "bottomleft", orientation = "clockwise",
                  xfrac = 1/2, yfrac = 1/2, animation = TRUE,
                  sleeptime = 2){
   generator <- matrix(1,nrow=1)
   for(n in 1:order){
     generator <- generate.hilbert(generator, n = n)
-    generator <- reorient(generator, corner = "bottomleft", direction = "counterclockwise")
+    generator <- reorient(generator, corner = corner, orientation = orientation)
     if(animation==TRUE){
       plot.results(generator,xfrac, yfrac, n = n)
       Sys.sleep(sleeptime)
@@ -61,5 +61,5 @@ main <- function(order, corner = "bottomleft", direction = "clockwise",
   }
 }
 
-main(6, animation = TRUE)
+main(1, animation = TRUE)
 
