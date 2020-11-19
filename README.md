@@ -8,7 +8,7 @@ The script provides a solution using matrix operations, which is highly suitable
 The ```main()``` function takes the following arguments:
 * order: specifies the order of the desired Hilbert curve. It can range between 1 and infinity, although orders higher than 10 are computationally expensive.
 * corner: specifies the corner of the space where the curve should begin. It is set to "bottomleft" by default.
-* orientation: specifies the orientation of the curve. If set to "clockwise", the second square connected will be in the clockwise direction with respect to the first one. It is set to "clockwise" by default.
+* orientation: specifies the orientation of the curve. Can take two values: "clockwise" and "counterclockwise".
 * xfrac: fraction of the horizontal space of the subsquares where the points should be, ranging from 0 to 1. If set to 1/2 the points are centered in the horizontal direction.
 * yfrac: fraction of the vertical space of the subsquares where the points should be, ranging from 0 to 1. If set to 1/2 the points are centered in the vertical direction.
 * animation: boolean. If set to TRUE, an animation of all the iterations made until reaching the desired order is plotted.
