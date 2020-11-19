@@ -42,7 +42,7 @@ plot.results <- function(generator, xfrac = 2, yfrac = 2, n){
   mypal <- rainbow(my.dim**2-1)
   plot(x=sorted[,2],y=sorted[,3], cex = 1/n, col = mypal,
        xlim = c(0, my.dim), ylim = c(0, my.dim), xaxs = "i", yaxs = "i",
-       xaxt='n', yaxt='n', xlab='',ylab='')
+       xaxt='n', yaxt='n', xlab=paste("Order", n), ylab='')
   grid(nx = my.dim, ny = my.dim, lty = 1, lwd = 1/n)
   segments(x[-length(x)],y[-length(y)],x[-1L],y[-1L],col=mypal,lwd=3/n)
 }
@@ -62,4 +62,4 @@ main <- function(order, corner = "bottomleft", orientation = "clockwise",
   }
 }
 
-main(6, animation = TRUE)
+main(6, animation = FALSE)
