@@ -62,4 +62,4 @@ main <- function(order, corner = "bottomleft", orientation = "clockwise",
   }
 }
 
-main(6, animation = FALSE)
+main(6, animation = TRUE)
