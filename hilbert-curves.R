@@ -33,8 +33,8 @@ plot.results <- function(generator, xfrac = 2, yfrac = 2, n){
   generator <- apply(generator,2,rev)
   my.dim <- dim(generator)[1]
   points <- matrix(nrow = dim(generator)[1]**2, ncol = 2, c(rep(1:my.dim,each = my.dim), rep(1:my.dim, my.dim)))
-  points[,1] <- points[,1]-xfrac
-  points[,2] <- points[,2]-yfrac
+  points[,1] <- points[,1]-(1-xfrac)
+  points[,2] <- points[,2]-(1-yfrac)
   coords <- cbind(c(generator),points)
   sorted <- coords[order(coords[,1]),]
   x <- sorted[,2]
